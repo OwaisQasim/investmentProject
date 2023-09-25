@@ -7,17 +7,17 @@ const initialInputs = {
     'duration': 10
 }
 
-export default function Form() {
+export default function Form({ onCalculate }) {
 
     const [userInput, setUserInput] = useState(initialInputs)
 
     const handlingSubmit = (evnt) => {
         evnt.preventDefault();
-
+        onCalculate(userInput)
     }
 
     const resetHanlder = () => {
-
+        setUserInput(initialInputs)
     }
 
     const inputChangeHandler = (input, value) => {
