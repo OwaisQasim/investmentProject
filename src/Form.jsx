@@ -25,7 +25,7 @@ export default function Form({ onCalculate }) {
         setUserInput(prevInput => {
             return {
                 ...prevInput,
-                [input]: value
+                [input]: +value
             }
         })
     }
