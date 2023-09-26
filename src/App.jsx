@@ -11,9 +11,10 @@ function App() {
     setUserInput(userInput)
 
   };
+  const yearlyData = []
 
   if (userInput) {
-    const yearlyData = []
+
 
     let currentSavings = userInput['current-savings'];
     const yearlyContribution = userInput['yearly-contribution'];
@@ -39,7 +40,8 @@ function App() {
     <div>
       <Header />
       <Form onCalculate={calculateHandler} />
-      <Table />
+      {!userInput && <p style={{ textAlign: 'center' }}>No Investment data is entered.</p>}
+      {userInput && <Table data={yearlyData} initialInvestment={userInput['current-savings']} />}
     </div>
   );
 }
